@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       // "phrase" is the text entered by the user - right now there are test words hard coded to make the process of testing your code faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: "alpha through yummy squeal queen fry",
+      phrase: "",
       // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
       phraseTranslated: "This is where your translated sentence will appear.",
     };
@@ -43,9 +43,15 @@ class App extends Component {
       if (currentWord[0] === vowelsArray[0]) {
         return currentWord + "way";
       } else if (vowelsArray.length === 0) {
-        let slicedLetters = currentWord.indexOf("y").slice;
-        return currentWord + slicedLetters + "ay";
-      }
+      let newFirst = currentWord.slice(currentWord.indexOf("y"))
+      let newLast = currentWord.slice(0,currentWord.indexOf("y"))
+      return newFirst + newLast + "ay"
+    // } else if (indexOf("qu") < indexOf(vowelsArray[1])) {
+    //   let newFirst = currentWord.slice(currentWord.indexOf(vowelsArray[1]))
+    //   return newFirst + "quay"
+    }
+
+
 
       // Pseudo Code
       // Create a function that iterates thru currentWord
@@ -121,7 +127,7 @@ class App extends Component {
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by ~TEAM BACONATER from Pluto~</footer>
       </>
     );
   }
